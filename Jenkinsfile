@@ -1,24 +1,26 @@
 pipeline {
-    agent any 
+    agent any
     stages {
-        stage('clone')
-      {
-       steps{
-         sh "git clone https://github.com/anilkumar321456/shopping-cart.git"
-        stage('Build') { 
+        stage('Clone') {
             steps {
-                sh " mvn install"
+                sh "git clone https://github.com/anilkumar321456/shopping-cart.git"
             }
         }
-        stage('Test') { 
+        stage('Build') {
+            steps {
+                sh "mvn install"
+            }
+        }
+        stage('Test') {
             steps {
                 echo "testing is done"
             }
         }
-        stage('Deploy') { 
+        stage('Deploy') {
             steps {
                 echo "deploying soon"
             }
         }
     }
 }
+
